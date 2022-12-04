@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: myvertex-deploy
+ labels:
+  app: vertex
+spec:
+ replicas: 2
+ selector:
+  matchLabels: 
+   apps: vertex
+ template: 
+  metadata:
+   labels:
+    app: vertex
+  spec:
+   containers:
+   - name: myvertex
+     image: shivani999/myvertexapp4dec22:1
+     ports:
+     - containerPort: 8080  
+       
